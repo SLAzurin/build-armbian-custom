@@ -1,0 +1,35 @@
+--- a/arch/arm/boot/dts/meson8m2-mxiii.dtsi
++++ b/arch/arm/boot/dts/meson8m2-mxiii.dtsi
+@@ -93,9 +93,9 @@
+ 			codec-0 {
+ 				sound-dai = <&aiu AIU_HDMI CTRL_I2S>;
+ 			};
+-			codec-1 {
+-				sound-dai = <&stereo_i2s_codec>;
+-			};
++//			codec-1 {
++//				sound-dai = <&stereo_i2s_codec>;
++//			};
+ 		};
+ 
+ 		dai-link-3 {
+@@ -121,12 +121,12 @@
+ 		sound-name-prefix = "DIT";
+ 	};
+ 
+-	stereo_i2s_codec: i2s-audio-codec {
+-		compatible = "mxtronics,mxt8234";
+-		#sound-dai-cells = <0>;
+-		VDD-supply = <&vcc_va_5v>;
+-		sound-name-prefix = "AV";
+-	};
++//	stereo_i2s_codec: i2s-audio-codec {
++//		compatible = "mxtronics,mxt8234";
++//		#sound-dai-cells = <0>;
++//		VDD-supply = <&vcc_va_5v>;
++//		sound-name-prefix = "AV";
++//	};
+ 
+ 	tv-connector {
+ 		compatible = "composite-video-connector";
+

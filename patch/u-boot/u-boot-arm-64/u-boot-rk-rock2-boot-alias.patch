@@ -1,0 +1,15 @@
+--- a/arch/arm/dts/rk3288-rock2-square.dts
++++ b/arch/arm/dts/rk3288-rock2-square.dts
+@@ -44,6 +44,11 @@
+ / {
+ 	model = "Radxa Rock 2 Square";
+ 	compatible = "radxa,rock2-square", "rockchip,rk3288";
++
++	aliases {
++		mmc0 = &sdmmc;
++		mmc1 = &emmc;
++	};
+ 
+ 	chosen {
+ 		stdout-path = "serial2:115200n8";
+

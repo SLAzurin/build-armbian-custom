@@ -1,0 +1,26 @@
+MENU TITLE Armbian boot
+TIMEOUT 50
+
+LABEL RK3399
+LINUX /zImage
+INITRD /uInitrd
+#FDT /dtb/rockchip/rk3399-rock-pi-4b.dtb
+#FDT /dtb/rockchip/rk3399-nanopc-t4.dtb
+FDT /dtb/rockchip/rk3399-roc-pc-mezzanine.dtb
+APPEND root=LABEL=ROOTFS rootflags=data=writeback rw console=uart8250,mmio32,0xff1a0000 console=tty0 no_console_suspend consoleblank=0 fsck.fix=yes fsck.repair=yes net.ifnames=0
+
+LABEL RK3328
+LINUX /zImage
+INITRD /uInitrd
+#FDT /dtb/rockchip/rk3328-roc-pc.dtb
+#FDT /dtb/rockchip/rk3328-box-trn9.dtb
+FDT /dtb/rockchip/rk3328-box.dtb
+APPEND root=LABEL=ROOTFS rootflags=data=writeback rw console=uart8250,mmio32,0xff130000 console=tty0 no_console_suspend consoleblank=0 fsck.fix=yes fsck.repair=yes net.ifnames=0
+
+LABEL H6
+LINUX /zImage
+INITRD /uInitrd
+FDT /dtb/allwinner/sun50i-h6-tanix-tx6.dtb
+APPEND root=LABEL=ROOTFS rootflags=data=writeback rw console=ttyS0,115200 console=tty0 no_console_suspend consoleblank=0 fsck.fix=yes fsck.repair=yes net.ifnames=0 video=HDMI-A-1:e
+#APPEND root=LABEL=ROOTFS rootflags=data=writeback rw console=ttyS0,115200 console=tty0 no_console_suspend consoleblank=0 fsck.fix=yes fsck.repair=yes net.ifnames=0 mem=2048M video=HDMI-A-1:e
+

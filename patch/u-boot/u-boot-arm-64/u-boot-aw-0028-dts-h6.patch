@@ -1,0 +1,53 @@
+--- a/arch/arm/dts/sun50i-h6-eachlink-h6-mini.dts
++++ b/arch/arm/dts/sun50i-h6-eachlink-h6-mini.dts
+@@ -56,6 +56,10 @@
+ 	status = "okay";
+ };
+ 
++&dwc3 {
++    status = "okay";
++};
++
+ &emac {
+ 	phy-mode = "rmii";
+ 	phy-handle = <&ext_rmii_phy>;
+@@ -73,12 +77,16 @@
+ };
+ 
+ &ehci0 {
+-	phys = <&usb2phy 0>;
++//	phys = <&usb2phy 0>;
+ 	status = "okay";
+ };
+ 
+ &ehci3 {
+ 	status = "okay";
++//};
++
++//&i2c3 {
++//    status = "okay";
+ };
+ 
+ &mdio {
+@@ -105,7 +113,7 @@
+ };
+ 
+ &ohci0 {
+-	phys = <&usb2phy 0>;
++//	phys = <&usb2phy 0>;
+ 	status = "okay";
+ };
+ 
+@@ -125,6 +133,10 @@
+ };
+ 
+ &usb2phy {
+-	usb0_vbus-supply = <&reg_vcc5v>;
++//	usb0_vbus-supply = <&reg_vcc5v>;
+ 	status = "okay";
+ };
++
++&usb3phy {
++    status = "okay";
++};
+

@@ -1,0 +1,6 @@
+LINUX=/zImage
+INITRD=/uInitrd
+
+# rk3288
+FDT=/dtb/rk3288-firefly-reload.dtb
+APPEND=root=LABEL=ROOTFS rootfstype=ext4 rootflags=data=writeback rw console=ttyS2,115200n8 console=tty0 no_console_suspend consoleblank=0 fsck.repair=yes net.ifnames=0

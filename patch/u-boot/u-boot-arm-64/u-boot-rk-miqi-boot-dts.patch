@@ -1,0 +1,83 @@
+--- a/arch/arm/dts/rk3288-miqi.dtsi
++++ b/arch/arm/dts/rk3288-miqi.dtsi
+@@ -123,8 +123,15 @@
+ 	status = "okay";
+ };
+ 
++&gpu {
++	mali-supply = <&vdd_gpu>;
++	status = "okay";
++};
++
+ &hdmi {
+ 	ddc-i2c-bus = <&i2c5>;
++	pinctrl-names = "default";
++//	pinctrl-0 = <&hdmi_cec_c0>;
+ 	status = "okay";
+ };
+ 
+@@ -209,7 +216,7 @@
+ 
+ 			vccio_sd: REG5 {
+ 				regulator-name = "vccio_sd";
+-				regulator-min-microvolt = <3300000>;
++				regulator-min-microvolt = <1800000>;
+ 				regulator-max-microvolt = <3300000>;
+ 				regulator-always-on;
+ 			};
+@@ -277,6 +284,23 @@
+ 
+ &i2c5 {
+ 	status = "okay";
++};
++
++&i2s {
++	status = "okay";
++};
++
++&io_domains {
++	status = "okay";
++
++	audio-supply = <&vcca_33>;
++	flash0-supply = <&vcc_flash>;
++	flash1-supply = <&vcc_lan>;
++	gpio30-supply = <&vcc_io>;
++	gpio1830-supply = <&vcc_io>;
++	lcdc-supply = <&vcc_io>;
++	sdcard-supply = <&vccio_sd>;
++	wifi-supply = <&vcc_18>;
+ };
+ 
+ &pinctrl {
+@@ -401,6 +425,15 @@
+ 	status = "okay";
+ };
+ 
++&usb_otg {
++	/*
++	 * The otg controller is the only system power source,
++	 * so needs to always stay in device mode.
++	 */
++	dr_mode = "peripheral";
++	status = "okay";
++};
++
+ &vopb {
+ 	status = "okay";
+ };
+@@ -409,14 +442,6 @@
+ 	status = "okay";
+ };
+ 
+-&vopl {
+-	status = "okay";
+-};
+-
+-&vopl_mmu {
+-	status = "okay";
+-};
+-
+ &wdt {
+ 	status = "okay";
+ };
+
