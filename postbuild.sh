@@ -2,6 +2,7 @@
 # 
 #   This script labels the ext4 partition in a .img file to become ROOTFS
 #   ex: sudo ./postbuild.sh ./output/images/Armbian_*Aml-s812_focal_current_*.img
+#
 
 # Check if script run as sudo/root
 if [[ $(id -u) -ne 0 ]]
@@ -29,5 +30,6 @@ fi
 e2label "${FREE_LOOP}p2" ROOTFS
 losetup -d $FREE_LOOP
 
+# Generate new .sha file
 chown "${USER}:${USER}" $1*
 sha256sum $1 > "${1}.sha"
