@@ -6,14 +6,14 @@
 
 # Check if script run as sudo/root
 if [[ $(id -u) -ne 0 ]]
-  then echo "Please run as root"
+  then echo "Please run as root/sudo"
   exit 1
 fi
 
 # Check if arg0 is file
 if [[ ! -f $1 ]]
 then
-    echo "arg0 not file"
+    echo "arg0 not file. Usage: sudo ./postbuild.sh file.img"
     exit 1
 fi
 
@@ -22,7 +22,7 @@ FREE_LOOP=$(losetup -f)
 losetup $FREE_LOOP $1
 if [[ ! $? -eq "0" ]]
 then
-    echo "failed to setup free loop"
+    echo "failed to setup free loop mount point"
     exit 1
 fi
 
